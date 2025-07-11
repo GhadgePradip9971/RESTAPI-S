@@ -1,0 +1,223 @@
+---
+
+# 🚀 Employee CRUD REST API — Spring Boot 3.5.3 + Oracle
+
+### 🔗 A production-ready **RESTful API** for Employee Management built using **Spring Boot 3.5.3**, **Java 21**, and **Oracle Database**, following best practices in **clean architecture, validation, and exception handling**.
+
+---
+
+## ✨ Key Highlights
+
+* 🔍 Complete **CRUD** operations for managing employees
+* 🔐 Robust **validation & exception handling**
+* 🏦 Integration with **Oracle Database (emp\_seq1 sequence)**
+* ⚙️ **Layered architecture:** Controller → Service → Repository → Database
+* 🚦 Well-structured RESTful endpoints with clear HTTP semantics
+* 🔧 **Postman-tested APIs**
+* 📈 Logs all SQL queries for transparency
+* 🔨 Built with latest **Java 21 + Spring Boot 3.5.3**
+
+---
+
+## 🔧 Tech Stack
+
+| Technology      | Version                 |
+| --------------- | ----------------------- |
+| Java            | 21                      |
+| Spring Boot     | 3.5.3                   |
+| Spring Data JPA | 3.x                     |
+| Oracle Database |  19c               |
+| Maven           | Build tool              |
+| Lombok          | For boilerplate removal |
+| Postman         | API testing             |
+| REST            | JSON APIs               |
+
+---
+
+## 🔨 Setup & Run Instructions
+
+### ✅ **Pre-requisites**
+
+* Java 21+
+* Oracle DB running on `localhost:1521:orcl`
+* Maven installed
+* Any IDE (**STS / Eclipse / IntelliJ**)
+
+---
+
+### 🛠 **Database Preparation**
+
+Run this in Oracle SQL Developer:
+
+```sql
+CREATE SEQUENCE emp_seq1 START WITH 1 INCREMENT BY 1;
+```
+
+Spring Boot will auto-create the **Emp** table.
+
+---
+
+### 🚀 **Project Setup**
+
+Clone the repo:
+
+```bash
+git clone https://github.com/<GhadgePradip9971>/Employee-Crud-API.git
+cd Employee-Crud-API
+```
+
+Configure database in `application.properties`:
+
+```properties
+server.port=2323
+server.servlet.context-path=/EmployeeCurdAPP
+
+spring.datasource.driver-class-name=oracle.jdbc.driver.OracleDriver
+spring.datasource.url=jdbc:oracle:thin:@localhost:1521:orcl
+spring.datasource.username=laptop
+spring.datasource.password=hp
+
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+```
+
+---
+
+### ▶️ **Run the Application**
+
+```bash
+mvn clean install
+mvn spring-boot:run
+```
+
+Access your app:
+
+```
+http://localhost:2323/EmployeeCurdAPP
+```
+
+---
+
+## 🔗 **API Endpoints**
+
+| Method | Endpoint                  | Description           |
+| ------ | ------------------------- | --------------------- |
+| POST   | `/Employee/save`          | Create new employee   |
+| GET    | `/Employee/findAll`       | Get all employees     |
+| GET    | `/Employee/findbyid/{id}` | Get employee by ID    |
+| PUT    | `/Employee/update/{id}`   | Update employee by ID |
+| DELETE | `/Employee/delete/{id}`   | Delete employee by ID |
+
+---
+
+## ⚙️ **Request Example**
+
+```json
+{
+  "empName": "Pradip",
+  "empSalary": 45000.50
+}
+```
+
+---
+
+## 🚨 **Validation Rules**
+
+| Field     | Constraint                       |
+| --------- | -------------------------------- |
+| empName   | Not blank, letters & spaces only |
+| empSalary | Must be a positive number        |
+
+Example of invalid input:
+
+```json
+{
+  "empName": "12345",
+  "empSalary": -1000
+}
+```
+
+→ ❌ API responds with **400 Bad Request**
+
+---
+
+## ⚠️ **Error Handling**
+
+| Scenario                   | Response Code | Message                                 |
+| -------------------------- | ------------- | --------------------------------------- |
+| Blank name                 | 400           | Employee name must not be blank         |
+| Name contains numbers      | 400           | Employee name must contain only letters |
+| Salary is zero or negative | 400           | Employee salary must be greater than 0  |
+| Employee ID not found      | 404           | Employee ID X does not exist            |
+
+---
+
+## 🏗️ **Clean Architecture Layers**
+
+```
+com.web
+├── controller       --> Exposes REST APIs
+├── service          --> Business Logic
+├── repositiory      --> Data Access Layer
+├── model            --> Employee Entity
+├── exception        --> Custom Exceptions
+└── RestApiEmployeeCurdApplication.java  --> Spring Boot Starter
+```
+
+---
+
+## 🚀 **Key Features**
+
+* ✅ Full CRUD operations
+* ✅ Oracle SEQUENCE-based primary key generation
+* ✅ Bean Validation (`@NotBlank`, `@Pattern`, `@Positive`)
+* ✅ Custom Exception Handling (`@RestControllerAdvice`)
+* ✅ Consistent API responses
+* ✅ Logging SQL queries for easy debugging
+
+---
+
+## 🎯 **Skills Demonstrated**
+
+* Spring Boot REST API Development
+* Spring Data JPA with Oracle
+* Validation & Exception Handling
+* Layered Architecture & Best Practices
+* Postman API Testing
+* Logging and Debugging
+
+---
+
+## 🔮 **Future Enhancements**
+
+* 🔹 Add Swagger/OpenAPI documentation
+* 🔹 Implement DTO & ModelMapper for clean separation
+* 🔹 Add Pagination & Sorting
+* 🔹 Unit Testing with JUnit & Mockito
+* 🔹 Secure APIs with Spring Security
+
+---
+
+## 🙋‍♂️ **About Me**
+🙋‍♂️ About Me
+👋 Pradip Ghadge
+Java Developer | Spring Boot | SQL | Building backend solutions
+
+🔗 GitHub: @GhadgePradip9971
+🔗 LinkedIn: www.linkedin.com/in/pradipghadge
+
+---
+
+## 🌟 **How This Helps Me as a Candidate**
+
+✅ Shows my practical knowledge in:
+
+* Java & Spring Boot Framework
+* REST API design and implementation
+* Database interaction using JPA & Oracle
+* Following software development best practices
+
+➡ Demonstrates my ability to independently build, test, and document a production-ready microservice.
+
+---
+
