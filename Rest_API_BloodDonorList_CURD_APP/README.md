@@ -37,5 +37,5 @@ A Spring Boot RESTful API for managing blood donor information with full CRUD (C
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/GhadgePradip9971/blood-donation-api.git
+git clone https://github.com/GhadgePradip9971/RESTAPI-S/tree/d9706ed3e882f3e850acfd8074cd78ed40e6b4f7/Rest_API_BloodDonorList_CURD_APP
 cd blood-donation-api
