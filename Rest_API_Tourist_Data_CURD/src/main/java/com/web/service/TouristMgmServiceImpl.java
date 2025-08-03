@@ -36,7 +36,7 @@ public class TouristMgmServiceImpl implements ITouristMgmService {
 		// TODO Auto-generated method stub
 		
 		
-		return touristRepo.findById(tid).orElseThrow(()-> new TouristNotFoundException(tid+"Tourist Not Found"));
+		return touristRepo.findById(tid).orElseThrow(()-> new TouristNotFoundException(tid+" Tourist is Not Found with this id"));
 	}
 
 	@Override
