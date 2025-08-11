@@ -1,6 +1,8 @@
 package com.web.service;
 
-import org.hibernate.mapping.List;
+
+
+import java.util.List;
 
 import com.web.exception.TouristNotFoundException;
 import com.web.model.Tourist;
